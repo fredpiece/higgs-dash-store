@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// Initialize Supabase client lazily during request
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase credentials');
+  if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error('Missing Supabase credentials');
+  }
+
+  return createClient(supabaseUrl, supabaseAnonKey);
 }
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 interface SubscribeRequest {
   email: string;
@@ -47,6 +49,9 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    // Get Supabase client
+    const supabase = getSupabaseClient();
 
     // Check if email already exists
     const { data: existingSubscriber, error: checkError } = await supabase
