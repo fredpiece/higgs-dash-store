@@ -10,6 +10,7 @@ import type { Address } from '@/lib/types';
 export default function CheckoutPage() {
   const cart = useCart((state) => state.getCart());
   const [step, setStep] = useState<'shipping' | 'payment' | 'confirmation'>('shipping');
+  const [email, setEmail] = useState('');
   const [shippingAddress, setShippingAddress] = useState<Address>({
     first_name: '',
     last_name: '',
@@ -115,6 +116,8 @@ export default function CheckoutPage() {
                     placeholder="Email Address"
                     className="input"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
 
                   <input
@@ -352,7 +355,7 @@ export default function CheckoutPage() {
                   </p>
                   <p className="text-sm text-gray-600 mb-2">
                     A confirmation email has been sent to{' '}
-                    <span className="font-semibold">{shippingAddress}</span>
+                    <span className="font-semibold">{email}</span>
                   </p>
                   <p className="text-sm text-gray-600">
                     Your order will ship within 24 hours. You'll receive a tracking
