@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ArrowRight, CheckCircle, Truck, Shield, RotateCcw } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
+import CharacterBg from '@/components/CharacterBg';
+import NewsletterSignup from '@/components/NewsletterSignup';
 import { getProducts, getFeaturedProducts } from '@/lib/supabase';
 import type { Product } from '@/lib/types';
 
@@ -75,17 +77,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Hero Image - Pirate/76ers Theme */}
-            <div className="relative h-96 bg-gradient-to-b from-[#1D428A] to-black rounded-lg overflow-hidden border-4 border-yellow-400 shadow-2xl">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-8xl mb-2 animate-bounce">🏴‍☠️</div>
-                  <div className="text-6xl mb-4">🟥 76ERS 🔵</div>
-                  <p className="text-yellow-400 font-bold text-xl mb-2">HIGGS DASH STORE</p>
-                  <p className="text-white text-sm">Collect. Trade. Conquer.</p>
-                </div>
-              </div>
-            </div>
+            {/* Right Hero Image - Character Display */}
+            <CharacterBg />
           </div>
         </div>
       </section>
@@ -234,28 +227,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-3xl font-bold text-primary mb-4">Stay Updated</h3>
-            <p className="text-gray-600 mb-6">
-              Subscribe to our newsletter for new arrivals, special offers, and exclusive deals.
-            </p>
-            <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="input flex-1"
-                required
-              />
-              <button type="submit" className="btn btn-primary">
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
+      {/* Newsletter Signup - Complete Component */}
+      <NewsletterSignup />
     </>
   );
 }
