@@ -145,7 +145,11 @@ export default function HomePage() {
               <Link
                 key={cat.name}
                 href={cat.href}
-                className="card card-hover p-8 text-center hover:shadow-xl transition-all bg-[#1a1a1a] border-2 border-[#CE1141] hover:border-[#FFD700]"
+                className="p-8 text-center hover:shadow-xl transition-all rounded-lg hover:scale-105"
+                style={{
+                  background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)',
+                  border: '2px solid #CE1141'
+                }}
               >
                 <div className="text-4xl mb-4">{cat.name.split(' ')[0]}</div>
                 <p className="font-semibold text-[#FFD700]">{cat.name}</p>
@@ -197,7 +201,14 @@ export default function HomePage() {
             ].map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <div key={idx} className="card p-8 text-center bg-[#1a1a1a] border-2 border-[#CE1141] hover:border-[#FFD700]">
+                <div 
+                  key={idx} 
+                  className="p-8 text-center rounded-lg hover:shadow-xl transition-all hover:scale-105"
+                  style={{
+                    background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)',
+                    border: '2px solid #FFD700'
+                  }}
+                >
                   <Icon className="w-12 h-12 text-[#FFD700] mx-auto mb-4" />
                   <h3 className="font-bold text-lg text-white mb-2">
                     {feature.title}
