@@ -4,9 +4,11 @@ import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import FilterPanel from '@/components/FilterPanel';
-import { getProducts } from '@/lib/supabase';
 import type { Product } from '@/lib/types';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { getProducts } from '@/lib/supabase';
+
+export const dynamic = 'force-dynamic';
 
 function ShopContent() {
   const searchParams = useSearchParams();

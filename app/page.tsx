@@ -8,6 +8,8 @@ import ProductCard from '@/components/ProductCard';
 import { getProducts, getFeaturedProducts } from '@/lib/supabase';
 import type { Product } from '@/lib/types';
 
+export const dynamic = 'force-dynamic';
+
 export default function HomePage() {
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
