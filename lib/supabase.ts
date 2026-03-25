@@ -1,14 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Product, Order, OrderItem, Review, Customer } from './types';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
-}
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
 
 // Product Queries
 export const getProducts = async (filters?: {
@@ -21,6 +19,11 @@ export const getProducts = async (filters?: {
   page?: number;
   limit?: number;
 }) => {
+  if (!supabase) {
+    console.warn('Supabase not configured');
+    return { products: [], count: 0 };
+  }
+  
   let query = supabase.from('products').select('*');
 
   if (filters?.category) {
@@ -68,6 +71,8 @@ export const getProducts = async (filters?: {
 };
 
 export const getProduct = async (id: string) => {
+  if (!supabase) return null;
+  
   const { data, error } = await supabase
     .from('products')
     .select('*')
@@ -79,6 +84,8 @@ export const getProduct = async (id: string) => {
 };
 
 export const getFeaturedProducts = async (limit = 4) => {
+  if (!supabase) return [];
+  
   const { data, error } = await supabase
     .from('products')
     .select('*')
