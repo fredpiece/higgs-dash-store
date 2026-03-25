@@ -41,11 +41,11 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section - 76ers + One Piece Theme */}
-      <section className="bg-gradient-to-br from-[#CE1141] via-[#1D428A] to-black text-white py-20 relative overflow-hidden">
+      {/* Hero Section - 2001 76ers Black Colorway + One Piece Theme */}
+      <section className="bg-gradient-to-br from-black via-[#1a1a1a] to-black text-white py-20 relative overflow-hidden border-b-4 border-[#CE1141]">
         {/* Pirate/Anime Background Elements */}
-        <div className="absolute top-0 right-0 opacity-10 text-8xl">🏴‍☠️</div>
-        <div className="absolute bottom-0 left-0 opacity-10 text-8xl">💍</div>
+        <div className="absolute top-0 right-0 opacity-5 text-8xl">🏴‍☠️</div>
+        <div className="absolute bottom-0 left-0 opacity-5 text-8xl">💍</div>
         
         <div className="container relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -68,10 +68,10 @@ export default function HomePage() {
                 Fast shipping, expert grading, and 30-day returns guaranteed.
               </p>
               <div className="flex gap-4">
-                <Link href="/shop" className="btn btn-lg bg-yellow-400 text-[#1D428A] hover:bg-yellow-300 font-bold">
+                <Link href="/shop" className="btn btn-lg bg-[#FFD700] text-black hover:bg-yellow-300 font-bold shadow-lg hover:shadow-xl transition-all">
                   BEGIN YOUR ADVENTURE <ArrowRight className="w-5 h-5" />
                 </Link>
-                <button className="btn btn-lg btn-outline text-white border-yellow-400 hover:bg-yellow-400 hover:text-[#1D428A] font-bold">
+                <button className="btn btn-lg btn-outline text-[#FFD700] border-[#FFD700] hover:bg-[#CE1141] hover:text-white font-bold transition-all">
                   Our Story
                 </button>
               </div>
@@ -84,15 +84,15 @@ export default function HomePage() {
       </section>
 
       {/* Featured Products Section - Wanted Poster Theme */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-20 bg-gradient-to-b from-black to-[#1a1a1a] border-b-4 border-[#FFD700]">
         <div className="container">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-2 mb-4">
               <span className="text-3xl">📜</span>
-              <h2 className="text-4xl font-bold text-[#CE1141]">WANTED TREASURES</h2>
+              <h2 className="text-4xl font-bold text-[#FFD700]">WANTED TREASURES</h2>
               <span className="text-3xl">💍</span>
             </div>
-            <p className="text-gray-600 text-lg font-semibold">
+            <p className="text-gray-300 text-lg font-semibold">
               The rarest pieces from Philly's greatest collectors
             </p>
           </div>
@@ -108,8 +108,8 @@ export default function HomePage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-gray-50 rounded-lg">
-              <p className="text-gray-600 mb-4">
+            <div className="text-center py-12 bg-[#1a1a1a] rounded-lg border-2 border-[#FFD700]">
+              <p className="text-gray-400 mb-4">
                 Featured products are being loaded. Check back soon!
               </p>
               <Link href="/shop" className="btn btn-primary">
@@ -128,9 +128,9 @@ export default function HomePage() {
       </section>
 
       {/* Categories Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-black border-b-4 border-[#CE1141]">
         <div className="container">
-          <h2 className="text-4xl font-bold text-primary text-center mb-12">
+          <h2 className="text-4xl font-bold text-[#FFD700] text-center mb-12">
             Shop by Category
           </h2>
 
@@ -145,10 +145,10 @@ export default function HomePage() {
               <Link
                 key={cat.name}
                 href={cat.href}
-                className="card card-hover p-8 text-center hover:shadow-xl transition-all"
+                className="card card-hover p-8 text-center hover:shadow-xl transition-all bg-[#1a1a1a] border-2 border-[#CE1141] hover:border-[#FFD700]"
               >
                 <div className="text-4xl mb-4">{cat.name.split(' ')[0]}</div>
-                <p className="font-semibold text-primary">{cat.name}</p>
+                <p className="font-semibold text-[#FFD700]">{cat.name}</p>
               </Link>
             ))}
           </div>
@@ -156,9 +156,9 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-b from-[#1a1a1a] to-black border-b-4 border-[#FFD700]">
         <div className="container">
-          <h2 className="text-4xl font-bold text-primary text-center mb-12">
+          <h2 className="text-4xl font-bold text-[#FFD700] text-center mb-12">
             Why Choose ClawBuddy?
           </h2>
 
@@ -197,12 +197,12 @@ export default function HomePage() {
             ].map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <div key={idx} className="card p-8 text-center">
-                  <Icon className="w-12 h-12 text-accent mx-auto mb-4" />
-                  <h3 className="font-bold text-lg text-primary mb-2">
+                <div key={idx} className="card p-8 text-center bg-[#1a1a1a] border-2 border-[#CE1141] hover:border-[#FFD700]">
+                  <Icon className="w-12 h-12 text-[#FFD700] mx-auto mb-4" />
+                  <h3 className="font-bold text-lg text-white mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-gray-300">{feature.description}</p>
                 </div>
               );
             })}
@@ -213,15 +213,15 @@ export default function HomePage() {
       {/* CTA Section */}
       <section
         id="contact"
-        className="bg-gradient-to-r from-primary to-secondary text-white py-20"
+        className="bg-gradient-to-r from-black via-[#CE1141] to-black text-white py-20 border-y-4 border-[#FFD700]"
       >
         <div className="container text-center">
-          <h2 className="text-4xl font-bold mb-4">Ready to Find Your Next Gem?</h2>
+          <h2 className="text-4xl font-bold mb-4 text-[#FFD700]">Ready to Find Your Next Gem?</h2>
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
             Browse our curated collection of premium sneakers, trading cards, vintage tech,
             and apparel. Every item is verified for authenticity and quality.
           </p>
-          <Link href="/shop" className="btn btn-lg bg-accent text-white hover:bg-red-600">
+          <Link href="/shop" className="btn btn-lg bg-[#FFD700] text-black hover:bg-white font-bold shadow-lg">
             Start Shopping Now <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
