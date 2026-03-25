@@ -147,12 +147,13 @@ export default function HomePage() {
                 href={cat.href}
                 className="p-8 text-center hover:shadow-xl transition-all rounded-lg hover:scale-105"
                 style={{
-                  background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)',
-                  border: '2px solid #CE1141'
+                  background: 'linear-gradient(135deg, #CE1141 0%, #8B0000 100%)',
+                  border: '3px solid #FFD700',
+                  boxShadow: '0 8px 20px rgba(206, 17, 65, 0.4)'
                 }}
               >
-                <div className="text-4xl mb-4">{cat.name.split(' ')[0]}</div>
-                <p className="font-semibold text-[#FFD700]">{cat.name}</p>
+                <div className="text-5xl mb-3">{cat.name.split(' ')[0]}</div>
+                <p className="font-bold text-white text-lg" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.7)'}}>{cat.name}</p>
               </Link>
             ))}
           </div>
@@ -205,15 +206,16 @@ export default function HomePage() {
                   key={idx} 
                   className="p-8 text-center rounded-lg hover:shadow-xl transition-all hover:scale-105"
                   style={{
-                    background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)',
-                    border: '2px solid #FFD700'
+                    background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
+                    border: '3px solid #FFD700',
+                    boxShadow: '0 8px 20px rgba(255, 215, 0, 0.2)'
                   }}
                 >
-                  <Icon className="w-12 h-12 text-[#FFD700] mx-auto mb-4" />
-                  <h3 className="font-bold text-lg text-white mb-2">
+                  <Icon className="w-12 h-12 text-[#FFD700] mx-auto mb-4" style={{filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))'}} />
+                  <h3 className="font-bold text-xl text-white mb-2" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.5)'}}>
                     {feature.title}
                   </h3>
-                  <p className="text-gray-300">{feature.description}</p>
+                  <p className="text-gray-200 font-medium">{feature.description}</p>
                 </div>
               );
             })}
