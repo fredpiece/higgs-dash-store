@@ -6,8 +6,6 @@ import { Plus, Edit, Trash2, Search } from 'lucide-react';
 import { getProducts } from '@/lib/supabase';
 import type { Product } from '@/lib/types';
 
-export const dynamic = 'force-dynamic';
-
 export default function AdminProducts() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);

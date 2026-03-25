@@ -8,8 +8,6 @@ import type { Product } from '@/lib/types';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { getProducts } from '@/lib/supabase';
 
-export const dynamic = 'force-dynamic';
-
 function ShopContent() {
   const searchParams = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
