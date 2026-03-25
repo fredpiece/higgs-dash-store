@@ -7,12 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#1a1a2e',
-        secondary: '#16213e',
-        accent: '#e94560',
+        primary: '#1D428A',     // 76ers Blue
+        secondary: '#CE1141',   // 76ers Red
+        accent: '#FFD700',      // Gold
         success: '#2ecc71',
         warning: '#f39c12',
         error: '#e74c3c',
+        '76ers-red': '#CE1141',
+        '76ers-blue': '#1D428A',
+        '76ers-gold': '#FFD700',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

@@ -126,12 +126,86 @@ body {
   }
 }
 
+/* Manga-Style Animations */
+@keyframes mangaPop {
+  0% {
+    transform: scale(0.8) rotate(-5deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes wantedPulse {
+  0%, 100% {
+    transform: rotate(-2deg) scale(1);
+  }
+  50% {
+    transform: rotate(2deg) scale(1.02);
+  }
+}
+
+@keyframes pirateShip {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes treasureGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes mangaBorder {
+  0%, 100% {
+    border-color: #CE1141;
+  }
+  50% {
+    border-color: #FFD700;
+  }
+}
+
 .fade-in {
   animation: fadeIn 0.3s ease-in;
 }
 
 .slide-up {
   animation: slideUp 0.3s ease-out;
+}
+
+.manga-pop {
+  animation: mangaPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wanted-pulse {
+  animation: wantedPulse 2s ease-in-out infinite;
+}
+
+.pirate-ship {
+  animation: pirateShip 3s ease-in-out infinite;
+}
+
+.treasure-glow {
+  animation: treasureGlow 2s ease-in-out infinite;
+}
+
+.manga-border {
+  animation: mangaBorder 2s ease-in-out infinite;
+  border: 3px solid #CE1141;
 }
 
 /* Container */

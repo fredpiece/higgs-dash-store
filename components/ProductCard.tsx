@@ -12,9 +12,9 @@ interface ProductCardProps {
 }
 
 const conditionColor: Record<string, string> = {
-  new: 'bg-green-100 text-green-800',
-  like_new: 'bg-blue-100 text-blue-800',
-  good: 'bg-yellow-100 text-yellow-800',
+  new: 'bg-76ers-gold text-76ers-blue font-bold',
+  like_new: 'bg-76ers-red text-white font-bold',
+  good: 'bg-76ers-blue text-76ers-gold font-bold',
   fair: 'bg-orange-100 text-orange-800',
 };
 
@@ -31,9 +31,24 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`/shop/${product.id}`}>
-      <div className="card card-hover h-full flex flex-col cursor-pointer">
+      <div className="card card-hover h-full flex flex-col cursor-pointer wanted-pulse" 
+           style={{
+             border: '4px solid #CE1141',
+             boxShadow: '0 4px 15px rgba(206, 17, 65, 0.3)',
+             background: 'linear-gradient(135deg, #fff8f0 0%, #fffbf5 100%)',
+             position: 'relative'
+           }}>
+        
+        {/* Wanted Poster Header */}
+        <div className="text-center py-2 border-b-4 border-76ers-red bg-gradient-to-r from-76ers-gold to-white">
+          <p className="text-xs font-black text-76ers-red tracking-widest" style={{textShadow: '2px 2px 0 #000'}}>
+            ⚡ WANTED ⚡
+          </p>
+          <p className="text-xs text-76ers-blue font-bold mt-1">RARE ITEM</p>
+        </div>
+
         {/* Image Container */}
-        <div className="relative w-full h-48 bg-gray-100 overflow-hidden">
+        <div className="relative w-full h-48 bg-gradient-to-br from-76ers-blue to-76ers-red overflow-hidden m-2 rounded-lg border-4 border-76ers-gold">
           {product.images && product.images.length > 0 ? (
             <Image
               src={product.images[0]}
@@ -43,81 +58,88 @@ export default function ProductCard({ product }: ProductCardProps) {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-              <span className="text-gray-400 text-sm">No Image</span>
+            <div className="w-full h-full bg-gradient-to-br from-76ers-blue to-76ers-red flex items-center justify-center">
+              <span className="text-white text-lg font-black">⚓</span>
             </div>
           )}
 
-          {/* Condition Badge */}
-          <div className={`absolute top-2 right-2 px-2 py-1 rounded text-xs font-semibold ${conditionColor[product.condition]}`}>
+          {/* Condition Badge - 76ers Style */}
+          <div className={`absolute top-2 right-2 px-2 py-1 rounded-lg text-xs font-black ${conditionColor[product.condition]} border-2 border-black`}>
             {product.condition.replace('_', ' ').toUpperCase()}
           </div>
         </div>
 
-        {/* Product Info */}
-        <div className="flex-1 p-4 flex flex-col">
-          {/* Category */}
-          <span className="text-xs text-gray-500 font-semibold uppercase mb-1">
-            {product.category}
+        {/* Product Info - Wanted Poster Style */}
+        <div className="flex-1 p-3 flex flex-col bg-white/80">
+          {/* Category - Pirate Theme */}
+          <span className="text-xs text-76ers-red font-black uppercase mb-1 tracking-wider">
+            ⚓ {product.category}
           </span>
 
-          {/* Product Name */}
-          <h3 className="text-lg font-bold text-primary mb-2 line-clamp-2 hover:text-accent">
+          {/* Product Name - Bold Manga Style */}
+          <h3 className="text-sm font-black text-76ers-blue mb-2 line-clamp-2 leading-tight" 
+              style={{textShadow: '1px 1px 0 #FFD700'}}>
             {product.name}
           </h3>
 
           {/* Rating */}
-          <div className="flex items-center gap-1 mb-3">
+          <div className="flex items-center gap-1 mb-2">
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`w-4 h-4 ${
+                  className={`w-3 h-3 ${
                     i < Math.round(product.rating)
-                      ? 'fill-yellow-400 text-yellow-400'
+                      ? 'fill-76ers-gold text-76ers-gold'
                       : 'text-gray-300'
                   }`}
                 />
               ))}
             </div>
-            <span className="text-xs text-gray-500">
+            <span className="text-xs text-76ers-blue font-bold">
               ({product.reviews_count})
             </span>
           </div>
 
-          {/* Price */}
-          <div className="mb-4">
+          {/* Price - Treasure Style */}
+          <div className="mb-3 p-2 bg-gradient-to-r from-76ers-gold to-orange-300 rounded-lg">
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-bold text-accent">
+              <span className="text-xl font-black text-76ers-blue">
                 ${product.price.toFixed(2)}
               </span>
               {product.original_price && product.original_price > product.price && (
-                <span className="text-sm text-gray-500 line-through">
+                <span className="text-xs text-gray-600 line-through font-bold">
                   ${product.original_price.toFixed(2)}
                 </span>
               )}
             </div>
           </div>
 
-          {/* Stock Status */}
-          <div className="mb-4">
+          {/* Stock Status - Pirate Bounty */}
+          <div className="mb-3">
             {product.stock > 0 ? (
-              <span className="text-sm text-green-600 font-semibold">
-                ✓ In Stock ({product.stock})
+              <span className="text-xs text-76ers-blue font-black bg-76ers-gold px-2 py-1 rounded-lg inline-block">
+                ⚓ IN STOCK ({product.stock})
               </span>
             ) : (
-              <span className="text-sm text-red-600 font-semibold">Out of Stock</span>
+              <span className="text-xs text-white font-black bg-76ers-red px-2 py-1 rounded-lg inline-block">
+                OUT OF STOCK
+              </span>
             )}
           </div>
 
-          {/* Add to Cart Button */}
+          {/* Add to Cart Button - 76ers Themed */}
           <button
             onClick={handleAddToCart}
             disabled={product.stock === 0 || isAddingToCart}
-            className="btn btn-primary w-full mt-auto flex items-center justify-center gap-2 disabled:opacity-50"
+            className="w-full mt-auto flex items-center justify-center gap-2 font-black text-white py-2 rounded-lg transition-all duration-200 border-2 border-76ers-red"
+            style={{
+              background: 'linear-gradient(135deg, #CE1141 0%, #1D428A 100%)',
+              textShadow: '1px 1px 0 #000'
+            }}
           >
             <ShoppingCart className="w-4 h-4" />
-            {isAddingToCart ? 'Added!' : 'Add to Cart'}
+            {isAddingToCart ? '⚡ ADDED!' : '🏴‍☠️ CAPTURE'}
           </button>
         </div>
       </div>
