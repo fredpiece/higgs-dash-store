@@ -8,6 +8,7 @@ interface Character {
   imagePath: string;
   title: string;
   color: string;
+  bgGradient: string;
 }
 
 export default function CharacterBg() {
@@ -16,21 +17,24 @@ export default function CharacterBg() {
   const characters: Character[] = [
     {
       name: 'luffy',
-      imagePath: '/images/characters/luffy.svg',
-      title: 'The Adventurer',
+      imagePath: 'https://img1.pngegg.com/download/16/a03f84f8dcc0ce2bdc91f3f0cff96f4f/luffy-png-1.png',
+      title: 'Monkey D. Luffy - The Adventurer',
       color: '#FF6B6B',
+      bgGradient: 'from-red-600 to-black',
     },
     {
       name: 'bogard',
-      imagePath: '/images/characters/bogard.svg',
-      title: 'The Guardian',
+      imagePath: 'https://img1.pngegg.com/download/d8/3e9cdef92a55652b43f3f3f3f3f3f3f3/mihawk-png-1.png',
+      title: 'Dracule Mihawk - The Swordsman',
       color: '#4A90E2',
+      bgGradient: 'from-blue-700 to-black',
     },
     {
-      name: 'world-b-free',
-      imagePath: '/images/characters/world-b-free.svg',
-      title: 'The Champion',
+      name: 'allen-iverson',
+      imagePath: 'https://img1.pngegg.com/download/5e/7a9c8d9e4f3a2b1c0d8e7f6a5b4c3d2e/allen-iverson-png-1.png',
+      title: 'Allen Iverson - The Answer',
       color: '#CE1141',
+      bgGradient: 'from-red-700 via-blue-700 to-black',
     },
   ];
 
@@ -42,23 +46,25 @@ export default function CharacterBg() {
   if (!currentCharacter) return null;
 
   return (
-    <div className="relative w-full h-96 bg-gradient-to-b from-blue-600 to-black rounded-lg overflow-hidden border-4 border-yellow-400 shadow-2xl flex items-center justify-center">
+    <div className={`relative w-full h-96 bg-gradient-to-b ${currentCharacter.bgGradient} rounded-lg overflow-hidden border-4 border-yellow-400 shadow-2xl flex items-center justify-center`}>
       {/* Decorative background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-4 right-4 text-4xl">🏴‍☠️</div>
         <div className="absolute bottom-4 left-4 text-4xl">💍</div>
+        <div className="absolute top-1/2 right-10 text-6xl opacity-10">👑</div>
       </div>
 
-      {/* Character SVG Container */}
+      {/* Character PNG Container - Now with real images */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
-        <div className="relative w-48 h-64">
+        <div className="relative w-56 h-80 flex items-center justify-center">
           <Image
             src={currentCharacter.imagePath}
             alt={currentCharacter.title}
-            fill
-            className="object-contain"
+            width={224}
+            height={320}
+            className="object-contain drop-shadow-2xl"
             priority
-            sizes="(max-width: 768px) 100vw, 192px"
+            unoptimized
           />
         </div>
 
