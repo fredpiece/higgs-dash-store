@@ -18,8 +18,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f9f9f9;
+  background: linear-gradient(to bottom, #f9f9f9, #f0f0f0);
   color: #1a1a2e;
+}
+
+/* 76ers + One Piece Theme Colors */
+:root {
+  --76ers-red: #CE1141;
+  --76ers-blue: #1D428A;
+  --76ers-gold: #FFD700;
+  --one-piece-black: #1a1a2e;
+  --one-piece-gold: #FFD700;
 }
 
 /* Scrollbar Styles */
@@ -74,13 +83,24 @@ body {
   @apply border-red-500 focus:ring-red-500;
 }
 
-/* Card Styles */
+/* Card Styles - Wanted Poster Theme */
 .card {
-  @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200;
+  @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200 border-2 border-yellow-400;
+  position: relative;
+}
+
+.card::before {
+  content: '📜';
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 1.5rem;
+  opacity: 0.3;
 }
 
 .card-hover {
-  @apply hover:shadow-xl hover:scale-105 transition-transform duration-200;
+  @apply hover:shadow-xl hover:scale-105 transition-transform duration-200 hover:border-red-500;
+  transform-origin: center;
 }
 
 /* Badge Styles */
@@ -105,7 +125,7 @@ body {
   @apply border-4 border-gray-200 border-t-accent rounded-full animate-spin;
 }
 
-/* Animations */
+/* Animations - Manga Style */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -126,56 +146,26 @@ body {
   }
 }
 
-/* Manga-Style Animations */
 @keyframes mangaPop {
   0% {
     transform: scale(0.8) rotate(-5deg);
     opacity: 0;
   }
-  70% {
-    transform: scale(1.05);
+  50% {
+    transform: scale(1.1) rotate(5deg);
   }
   100% {
-    transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0deg);
     opacity: 1;
   }
 }
 
-@keyframes wantedPulse {
+@keyframes shimmer {
   0%, 100% {
-    transform: rotate(-2deg) scale(1);
+    background-position: 0% 50%;
   }
   50% {
-    transform: rotate(2deg) scale(1.02);
-  }
-}
-
-@keyframes pirateShip {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes treasureGlow {
-  0%, 100% {
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-    transform: scale(1.05);
-  }
-}
-
-@keyframes mangaBorder {
-  0%, 100% {
-    border-color: #CE1141;
-  }
-  50% {
-    border-color: #FFD700;
+    background-position: 100% 50%;
   }
 }
 
@@ -188,24 +178,13 @@ body {
 }
 
 .manga-pop {
-  animation: mangaPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation: mangaPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.wanted-pulse {
-  animation: wantedPulse 2s ease-in-out infinite;
-}
-
-.pirate-ship {
-  animation: pirateShip 3s ease-in-out infinite;
-}
-
-.treasure-glow {
-  animation: treasureGlow 2s ease-in-out infinite;
-}
-
-.manga-border {
-  animation: mangaBorder 2s ease-in-out infinite;
-  border: 3px solid #CE1141;
+.shimmer {
+  background: linear-gradient(90deg, #CE1141, #FFD700, #CE1141);
+  background-size: 200% 200%;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 /* Container */

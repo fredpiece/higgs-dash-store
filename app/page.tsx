@@ -39,46 +39,50 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section - One Piece x 76ers Theme */}
-      <section className="text-white py-16" 
-               style={{background: 'linear-gradient(135deg, #1D428A 0%, #CE1141 100%)'}}>
-        <div className="container">
+      {/* Hero Section - 76ers + One Piece Theme */}
+      <section className="bg-gradient-to-br from-[#CE1141] via-[#1D428A] to-black text-white py-20 relative overflow-hidden">
+        {/* Pirate/Anime Background Elements */}
+        <div className="absolute top-0 right-0 opacity-10 text-8xl">🏴‍☠️</div>
+        <div className="absolute bottom-0 left-0 opacity-10 text-8xl">💍</div>
+        
+        <div className="container relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Left Content - Wanted Poster */}
-            <div className="manga-pop">
-              <div className="mb-4 inline-block bg-76ers-gold text-76ers-blue px-4 py-2 rounded-lg font-black text-sm tracking-wider border-4 border-76ers-red">
-                🏴‍☠️ GRAND COLLECTION 🏴‍☠️
+            {/* Left Content */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-3xl">🏀</span>
+                <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+                  TREASURE THE GAME
+                </h1>
               </div>
-              <h1 className="text-5xl md:text-6xl font-black mb-4 leading-tight" 
-                  style={{textShadow: '3px 3px 0 #FFD700, 6px 6px 0 #000'}}>
-                LEGENDARY TREASURES
-              </h1>
-              <p className="text-lg text-gray-100 mb-8 font-bold">
-                Join the pirate crew! 🏴‍☠️ Discover authentic Air Jordans, Pokémon cards, vintage tech, and apparel from the 76ers vault. Expert authentication, fast shipping, and legendary customer service.
+              <p className="text-xl text-gray-100 mb-2 font-bold">
+                Philly's Premier Collectibles Hub
+              </p>
+              <p className="text-lg text-gray-200 mb-8">
+                🟥 76ers Legends • 🏴‍☠️ One Piece Collection • 💎 Authentic Treasures
+              </p>
+              <p className="text-base text-gray-300 mb-8">
+                Authentic Air Jordans, Pokémon cards, vintage technology & quality apparel. 
+                Fast shipping, expert grading, and 30-day returns guaranteed.
               </p>
               <div className="flex gap-4">
-                <Link href="/shop" className="btn btn-lg font-black text-76ers-blue border-4 border-76ers-gold"
-                      style={{background: '#FFD700'}}>
-                  ⚓ FIND TREASURE <ArrowRight className="w-5 h-5" />
+                <Link href="/shop" className="btn btn-lg bg-yellow-400 text-[#1D428A] hover:bg-yellow-300 font-bold">
+                  BEGIN YOUR ADVENTURE <ArrowRight className="w-5 h-5" />
                 </Link>
-                <button className="btn btn-lg btn-outline text-76ers-gold border-4 border-76ers-gold font-black hover:bg-76ers-gold hover:text-76ers-blue">
-                  🎬 STORY
+                <button className="btn btn-lg btn-outline text-white border-yellow-400 hover:bg-yellow-400 hover:text-[#1D428A] font-bold">
+                  Our Story
                 </button>
               </div>
             </div>
 
-            {/* Right Hero Image - Luffy in 76ers Jersey */}
-            <div className="relative h-96 rounded-lg overflow-hidden pirate-ship border-4 border-76ers-gold"
-                 style={{background: 'linear-gradient(135deg, #fff8f0 0%, #fffbf5 100%)'}}>
+            {/* Right Hero Image - Pirate/76ers Theme */}
+            <div className="relative h-96 bg-gradient-to-b from-[#1D428A] to-black rounded-lg overflow-hidden border-4 border-yellow-400 shadow-2xl">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="text-9xl mb-4 manga-pop">🏴‍☠️</div>
-                  <p className="text-76ers-blue font-black text-3xl" style={{textShadow: '2px 2px 0 #FFD700'}}>
-                    HIGGS CREW
-                  </p>
-                  <p className="text-76ers-red font-black text-sm tracking-widest mt-2">
-                    ⚡ WANTED ⚡
-                  </p>
+                  <div className="text-8xl mb-2 animate-bounce">🏴‍☠️</div>
+                  <div className="text-6xl mb-4">🟥 76ERS 🔵</div>
+                  <p className="text-yellow-400 font-bold text-xl mb-2">HIGGS DASH STORE</p>
+                  <p className="text-white text-sm">Collect. Trade. Conquer.</p>
                 </div>
               </div>
             </div>
@@ -86,15 +90,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Products Section */}
-      <section className="py-20 bg-white">
+      {/* Featured Products Section - Wanted Poster Theme */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-76ers-blue mb-4" style={{textShadow: '2px 2px 0 #FFD700'}}>
-              🎴 FEATURED BOUNTIES
-            </h2>
-            <p className="text-76ers-red text-lg font-bold">
-              Most wanted treasures from the 76ers vault
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <span className="text-3xl">📜</span>
+              <h2 className="text-4xl font-bold text-[#CE1141]">WANTED TREASURES</h2>
+              <span className="text-3xl">💍</span>
+            </div>
+            <p className="text-gray-600 text-lg font-semibold">
+              The rarest pieces from Philly's greatest collectors
             </p>
           </div>
 
@@ -121,98 +127,89 @@ export default function HomePage() {
 
           {/* View All Button */}
           <div className="text-center mt-12">
-            <Link href="/shop" className="btn btn-lg font-black text-76ers-blue border-4 border-76ers-red"
-                  style={{background: '#FFD700'}}>
-              ⚓ VIEW ALL TREASURE <ArrowRight className="w-5 h-5" />
+            <Link href="/shop" className="btn btn-lg btn-primary">
+              View All Products <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Categories Section - Crew Roles */}
-      <section className="py-20" style={{background: 'linear-gradient(135deg, #1D428A 0%, #CE1141 100%)'}}>
+      {/* Categories Section */}
+      <section className="py-20 bg-gray-50">
         <div className="container">
-          <h2 className="text-4xl font-black text-76ers-gold text-center mb-12" style={{textShadow: '2px 2px 0 #000'}}>
-            🏴‍☠️ CREW DIVISIONS 🏴‍☠️
+          <h2 className="text-4xl font-bold text-primary text-center mb-12">
+            Shop by Category
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
             {[
-              { name: '🏀 Sneakers', href: '/shop?category=sneakers', emoji: '🏀' },
-              { name: '🎴 Trading Cards', href: '/shop?category=cards', emoji: '🎴' },
-              { name: '💾 Vintage Tech', href: '/shop?category=tech', emoji: '💾' },
-              { name: '👕 Apparel', href: '/shop?category=apparel', emoji: '👕' },
-              { name: '🧢 Hats', href: '/shop?category=hats', emoji: '🧢' },
+              { name: '🏀 Sneakers', href: '/shop?category=sneakers' },
+              { name: '🎴 Trading Cards', href: '/shop?category=cards' },
+              { name: '💾 Vintage Tech', href: '/shop?category=tech' },
+              { name: '👕 Apparel', href: '/shop?category=apparel' },
+              { name: '🧢 Hats', href: '/shop?category=hats' },
             ].map((cat) => (
               <Link
                 key={cat.name}
                 href={cat.href}
-                className="card card-hover p-6 text-center wanted-pulse border-4 border-76ers-gold"
-                style={{background: 'linear-gradient(135deg, #fff8f0 0%, #fffbf5 100%)'}}
+                className="card card-hover p-8 text-center hover:shadow-xl transition-all"
               >
-                <div className="text-5xl mb-2">{cat.emoji}</div>
-                <p className="font-black text-76ers-blue">{cat.name.split(' ')[0]}</p>
+                <div className="text-4xl mb-4">{cat.name.split(' ')[0]}</div>
+                <p className="font-semibold text-primary">{cat.name}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section - Why Join the Crew */}
-      <section className="py-20 bg-white">
+      {/* Why Choose Us Section */}
+      <section className="py-20">
         <div className="container">
-          <h2 className="text-4xl font-black text-76ers-blue text-center mb-12" style={{textShadow: '2px 2px 0 #FFD700'}}>
-            ⚓ WHY JOIN THE CREW? ⚓
+          <h2 className="text-4xl font-bold text-primary text-center mb-12">
+            Why Choose ClawBuddy?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: CheckCircle,
-                title: '✅ Verified Treasures',
-                description: 'Every item authenticated before shipping',
-                emoji: '🔍'
+                title: 'Authentic Products',
+                description: 'Every item is verified and authenticated before shipping',
               },
               {
                 icon: Truck,
-                title: '⚡ Lightning Fast',
-                description: 'Ships within 24 hours with tracking',
-                emoji: '📦'
+                title: 'Fast Shipping',
+                description: 'Orders ship within 24 hours with tracking included',
               },
               {
                 icon: Shield,
-                title: '🛡️ Secure Voyage',
-                description: 'Encrypted payments & full buyer protection',
-                emoji: '🔐'
+                title: 'Secure Checkout',
+                description: 'Encrypted payments and buyer protection on all orders',
               },
               {
                 icon: RotateCcw,
-                title: '🔄 30-Day Returns',
-                description: 'Not satisfied? Full refund guaranteed',
-                emoji: '↩️'
+                title: '30-Day Returns',
+                description: 'Not satisfied? Return within 30 days for full refund',
               },
               {
                 icon: CheckCircle,
-                title: '🎯 Expert Grading',
-                description: 'Professional evaluation for all items',
-                emoji: '⭐'
+                title: 'Expert Grading',
+                description: 'Professional grading for cards and collectibles',
               },
               {
                 icon: CheckCircle,
-                title: '💰 Best Prices',
-                description: 'Lowest rates in the whole ocean',
-                emoji: '💎'
+                title: 'Competitive Pricing',
+                description: 'Best prices compared to other marketplaces',
               },
             ].map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <div key={idx} className="card p-6 text-center border-4 border-76ers-gold wanted-pulse"
-                     style={{background: 'linear-gradient(135deg, #fff8f0 0%, #fffbf5 100%)'}}>
-                  <div className="text-4xl mb-3">{feature.emoji}</div>
-                  <h3 className="font-black text-lg text-76ers-blue mb-2">
+                <div key={idx} className="card p-8 text-center">
+                  <Icon className="w-12 h-12 text-accent mx-auto mb-4" />
+                  <h3 className="font-bold text-lg text-primary mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-76ers-red font-semibold">{feature.description}</p>
+                  <p className="text-gray-600">{feature.description}</p>
                 </div>
               );
             })}
@@ -220,44 +217,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section - Set Sail */}
+      {/* CTA Section */}
       <section
         id="contact"
-        className="text-white py-20"
-        style={{background: 'linear-gradient(135deg, #1D428A 0%, #CE1141 100%)'}}
+        className="bg-gradient-to-r from-primary to-secondary text-white py-20"
       >
         <div className="container text-center">
-          <h2 className="text-4xl font-black mb-4" style={{textShadow: '3px 3px 0 #FFD700, 6px 6px 0 #000'}}>
-            🏴‍☠️ READY TO SET SAIL? 🏴‍☠️
-          </h2>
-          <p className="text-lg text-gray-100 mb-8 max-w-2xl mx-auto font-bold">
-            Join the crew! Browse our legendary collection of Jordans, Pokemon, vintage tech, and apparel. Every treasure authenticated by the 76ers vault.
+          <h2 className="text-4xl font-bold mb-4">Ready to Find Your Next Gem?</h2>
+          <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            Browse our curated collection of premium sneakers, trading cards, vintage tech,
+            and apparel. Every item is verified for authenticity and quality.
           </p>
-          <Link href="/shop" className="btn btn-lg font-black text-76ers-blue border-4 border-76ers-gold" style={{background: '#FFD700'}}>
-            ⚓ FIND YOUR TREASURE <ArrowRight className="w-5 h-5" />
+          <Link href="/shop" className="btn btn-lg bg-accent text-white hover:bg-red-600">
+            Start Shopping Now <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>
 
-      {/* Newsletter Section - Crew Alerts */}
-      <section className="py-16 bg-white">
+      {/* Newsletter Section */}
+      <section className="py-16 bg-gray-50">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-3xl font-black text-76ers-blue mb-4" style={{textShadow: '2px 2px 0 #FFD700'}}>
-              🎴 NEW BOUNTIES INCOMING 🎴
-            </h3>
-            <p className="text-76ers-red mb-6 font-bold">
-              Subscribe to get alerts on new treasures, exclusive drops, and 76ers crew rewards!
+            <h3 className="text-3xl font-bold text-primary mb-4">Stay Updated</h3>
+            <p className="text-gray-600 mb-6">
+              Subscribe to our newsletter for new arrivals, special offers, and exclusive deals.
             </p>
             <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
-                placeholder="Your email (captain)..."
-                className="input flex-1 border-4 border-76ers-gold text-76ers-blue font-bold"
+                placeholder="Enter your email"
+                className="input flex-1"
                 required
               />
-              <button type="submit" className="btn btn-lg font-black text-76ers-blue border-4 border-76ers-gold" style={{background: '#FFD700'}}>
-                ⚓ JOIN
+              <button type="submit" className="btn btn-primary">
+                Subscribe
               </button>
             </form>
           </div>
