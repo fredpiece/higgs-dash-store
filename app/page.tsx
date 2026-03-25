@@ -39,35 +39,50 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary text-white py-20">
-        <div className="container">
+      {/* Hero Section - 76ers + One Piece Theme */}
+      <section className="bg-gradient-to-br from-[#CE1141] via-[#1D428A] to-black text-white py-20 relative overflow-hidden">
+        {/* Pirate/Anime Background Elements */}
+        <div className="absolute top-0 right-0 opacity-10 text-8xl">🏴‍☠️</div>
+        <div className="absolute bottom-0 left-0 opacity-10 text-8xl">💍</div>
+        
+        <div className="container relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
-                Premium Sneakers, Cards & Collectibles
-              </h1>
-              <p className="text-xl text-gray-200 mb-8">
-                Discover authentic Air Jordans, Pokémon cards, vintage technology, and
-                quality apparel. Fast shipping, expert grading, and 30-day returns.
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-3xl">🏀</span>
+                <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+                  TREASURE THE GAME
+                </h1>
+              </div>
+              <p className="text-xl text-gray-100 mb-2 font-bold">
+                Philly's Premier Collectibles Hub
+              </p>
+              <p className="text-lg text-gray-200 mb-8">
+                🟥 76ers Legends • 🏴‍☠️ One Piece Collection • 💎 Authentic Treasures
+              </p>
+              <p className="text-base text-gray-300 mb-8">
+                Authentic Air Jordans, Pokémon cards, vintage technology & quality apparel. 
+                Fast shipping, expert grading, and 30-day returns guaranteed.
               </p>
               <div className="flex gap-4">
-                <Link href="/shop" className="btn btn-lg bg-accent text-white hover:bg-red-600">
-                  Shop Now <ArrowRight className="w-5 h-5" />
+                <Link href="/shop" className="btn btn-lg bg-yellow-400 text-[#1D428A] hover:bg-yellow-300 font-bold">
+                  BEGIN YOUR ADVENTURE <ArrowRight className="w-5 h-5" />
                 </Link>
-                <button className="btn btn-lg btn-outline text-white border-white hover:bg-white hover:text-primary">
-                  Learn More
+                <button className="btn btn-lg btn-outline text-white border-yellow-400 hover:bg-yellow-400 hover:text-[#1D428A] font-bold">
+                  Our Story
                 </button>
               </div>
             </div>
 
-            {/* Right Hero Image */}
-            <div className="relative h-96 bg-accent bg-opacity-20 rounded-lg overflow-hidden">
+            {/* Right Hero Image - Pirate/76ers Theme */}
+            <div className="relative h-96 bg-gradient-to-b from-[#1D428A] to-black rounded-lg overflow-hidden border-4 border-yellow-400 shadow-2xl">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="text-8xl mb-4">⚛️</div>
-                  <p className="text-white font-bold text-2xl">ClawBuddy</p>
+                  <div className="text-8xl mb-2 animate-bounce">🏴‍☠️</div>
+                  <div className="text-6xl mb-4">🟥 76ERS 🔵</div>
+                  <p className="text-yellow-400 font-bold text-xl mb-2">HIGGS DASH STORE</p>
+                  <p className="text-white text-sm">Collect. Trade. Conquer.</p>
                 </div>
               </div>
             </div>
@@ -75,13 +90,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Products Section */}
-      <section className="py-20">
+      {/* Featured Products Section - Wanted Poster Theme */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Featured Products</h2>
-            <p className="text-gray-600 text-lg">
-              Check out our most popular items from verified sellers
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <span className="text-3xl">📜</span>
+              <h2 className="text-4xl font-bold text-[#CE1141]">WANTED TREASURES</h2>
+              <span className="text-3xl">💍</span>
+            </div>
+            <p className="text-gray-600 text-lg font-semibold">
+              The rarest pieces from Philly's greatest collectors
             </p>
           </div>
 
