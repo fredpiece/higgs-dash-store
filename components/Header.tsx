@@ -27,20 +27,20 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b-4 border-76ers-red" 
-            style={{background: 'linear-gradient(135deg, #1D428A 0%, #CE1141 100%)'}}>
+    <header className="sticky top-0 z-50 border-b-4 border-[#FFD700] bg-black shadow-lg" 
+            style={{background: 'linear-gradient(90deg, #000000 0%, #1a1a1a 50%, #000000 100%)'}}>
       <div className="container py-4">
         <div className="flex items-center justify-between gap-4 mb-4">
           {/* Logo - Pirate Ship & 76ers */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-12 h-12 bg-76ers-gold rounded-lg flex items-center justify-center border-2 border-76ers-red pirate-ship">
+            <div className="w-12 h-12 bg-[#FFD700] rounded-lg flex items-center justify-center border-2 border-[#CE1141] pirate-ship">
               <span className="text-2xl">🏴‍☠️</span>
             </div>
             <div className="hidden sm:flex flex-col">
-              <span className="text-2xl font-black text-76ers-gold leading-none" style={{textShadow: '2px 2px 0 #000'}}>
+              <span className="text-2xl font-black text-[#FFD700] leading-none" style={{textShadow: '2px 2px 0 #000'}}>
                 HIGGS
               </span>
-              <span className="text-xs text-76ers-gold font-bold tracking-wider">76ers CREW</span>
+              <span className="text-xs text-white font-bold tracking-wider">76ers CREW</span>
             </div>
           </Link>
 
@@ -52,11 +52,11 @@ export default function Header() {
                 placeholder="Search for treasure..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="input rounded-r-none bg-white text-76ers-blue font-bold border-2 border-76ers-gold"
+                className="input rounded-r-none bg-white text-black font-bold border-2 border-[#FFD700]"
               />
               <button
                 type="submit"
-                className="bg-76ers-gold text-76ers-blue px-4 py-2 rounded-r-lg hover:bg-white font-black border-2 border-76ers-gold"
+                className="bg-[#FFD700] text-black px-4 py-2 rounded-r-lg hover:bg-white font-black border-2 border-[#FFD700]"
               >
                 <Search className="w-5 h-5" />
               </button>
@@ -68,11 +68,11 @@ export default function Header() {
             {/* Cart Button - Treasure */}
             <Link
               href="/cart"
-              className="relative text-76ers-gold hover:text-white transition-colors font-black treasure-glow"
+              className="relative text-[#FFD700] hover:text-white transition-colors font-black treasure-glow"
             >
               <ShoppingCart className="w-6 h-6" />
               {cartItemCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-76ers-gold text-76ers-blue text-xs font-black w-6 h-6 rounded-full flex items-center justify-center border-2 border-76ers-red">
+                <span className="absolute -top-2 -right-2 bg-[#FFD700] text-black text-xs font-black w-6 h-6 rounded-full flex items-center justify-center border-2 border-[#CE1141]">
                   {cartItemCount}
                 </span>
               )}
@@ -81,7 +81,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-76ers-gold font-black text-xl"
+              className="md:hidden text-[#FFD700] font-black text-xl"
             >
               {mobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -94,36 +94,36 @@ export default function Header() {
 
         {/* Navigation Menu - Desktop */}
         <nav className="hidden md:flex gap-8">
-          <Link href="/" className="text-76ers-gold hover:text-white font-black tracking-wide">
+          <Link href="/" className="text-[#FFD700] hover:text-white font-black tracking-wide">
             ⛵ Home
           </Link>
           <div className="group relative">
-            <button className="text-76ers-gold hover:text-white font-black tracking-wide">
+            <button className="text-[#FFD700] hover:text-white font-black tracking-wide">
               🏴‍☠️ CREW
             </button>
-            <div className="absolute left-0 mt-0 w-48 bg-76ers-blue rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border-2 border-76ers-gold">
+            <div className="absolute left-0 mt-0 w-48 bg-black rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border-2 border-[#FFD700]">
               {categories.map((cat) => (
                 <Link
                   key={cat.href}
                   href={cat.href}
-                  className="block px-4 py-2 text-76ers-gold hover:bg-76ers-red hover:text-white font-bold first:rounded-t-lg last:rounded-b-lg"
+                  className="block px-4 py-2 text-[#FFD700] hover:bg-[#CE1141] hover:text-white font-bold first:rounded-t-lg last:rounded-b-lg"
                 >
                   {cat.name}
                 </Link>
               ))}
             </div>
           </div>
-          <Link href="/#about" className="text-76ers-gold hover:text-white font-black tracking-wide">
+          <Link href="/#about" className="text-[#FFD700] hover:text-white font-black tracking-wide">
             📖 Story
           </Link>
-          <Link href="/#contact" className="text-76ers-gold hover:text-white font-black tracking-wide">
+          <Link href="/#contact" className="text-[#FFD700] hover:text-white font-black tracking-wide">
             ⚓ Contact
           </Link>
         </nav>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <nav className="md:hidden mt-4 pt-4 border-t-4 border-76ers-gold space-y-3">
+          <nav className="md:hidden mt-4 pt-4 border-t-4 border-[#FFD700] space-y-3">
             {/* Mobile Search */}
             <form onSubmit={handleSearch} className="flex mb-4">
               <input
@@ -131,35 +131,35 @@ export default function Header() {
                 placeholder="Search treasure..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="input rounded-r-none text-sm bg-white text-76ers-blue font-bold border-76ers-gold"
+                className="input rounded-r-none text-sm bg-white text-black font-bold border-[#FFD700]"
               />
               <button
                 type="submit"
-                className="bg-76ers-gold text-76ers-blue px-3 py-2 rounded-r-lg font-black"
+                className="bg-[#FFD700] text-black px-3 py-2 rounded-r-lg font-black"
               >
                 <Search className="w-4 h-4" />
               </button>
             </form>
 
-            <Link href="/" className="block text-76ers-gold hover:text-white font-black">
+            <Link href="/" className="block text-[#FFD700] hover:text-white font-black">
               ⛵ Home
             </Link>
-            <Link href="/shop" className="block text-76ers-gold hover:text-white font-black">
+            <Link href="/shop" className="block text-[#FFD700] hover:text-white font-black">
               🏴‍☠️ All Items
             </Link>
             {categories.map((cat) => (
               <Link
                 key={cat.href}
                 href={cat.href}
-                className="block text-76ers-gold hover:text-white text-sm pl-4 font-bold"
+                className="block text-[#FFD700] hover:text-white text-sm pl-4 font-bold"
               >
                 ⚓ {cat.name}
               </Link>
             ))}
-            <Link href="/#about" className="block text-76ers-gold hover:text-white font-black">
+            <Link href="/#about" className="block text-[#FFD700] hover:text-white font-black">
               📖 Story
             </Link>
-            <Link href="/#contact" className="block text-76ers-gold hover:text-white font-black">
+            <Link href="/#contact" className="block text-[#FFD700] hover:text-white font-black">
               ⚓ Contact
             </Link>
           </nav>
